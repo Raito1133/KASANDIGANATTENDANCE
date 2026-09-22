@@ -320,7 +320,7 @@
 
         function confirmLogout() {
             if (confirm("Are you sure you want to log out?")) {
-                window.location.href = "kasan.html";
+                window.location.href = "kasan1design.html";
             }
         }
 
@@ -383,12 +383,9 @@
             }
 
             filterTable();
-
-            // Awtomatikong mag-sync o mag-refresh ng records tuwing 5 segundo para sa multi-device live view
             setInterval(syncLocalRecords, 5000);
         });
 
-        // Function para i-sync ang local records sa bawat device nang live
         function syncLocalRecords() {
             const savedRecords = JSON.parse(localStorage.getItem('csm_attendance_records'));
             if (savedRecords && JSON.stringify(savedRecords) !== JSON.stringify(attendanceRecords)) {
