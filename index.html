@@ -16,7 +16,7 @@
 
     <!-- Top Right Controls (Settings Gear & Log Out Button) -->
     <div class="absolute top-4 right-4 z-50 flex items-center gap-2">
-        <button id="settingsBtn" class="bg-white/85 hover:bg-white text-[#7B1113] p-2.5 rounded-full shadow-md border border-[#7B1113]/20 transition flex items-center justify-center" title="System Settings & Mode">
+        <button id="settingsBtn" class="bg-white/85 hover:bg-white text-[#7B1113] p-2.5 rounded-full shadow-md border border-[#7B1113]/20 transition flex items-center justify-center" title="System Settings & Portal Switcher">
             <i class="fa-solid fa-gear text-lg"></i>
         </button>
         <button onclick="confirmLogout()" class="bg-white/85 hover:bg-white text-red-700 p-2.5 rounded-full shadow-md border border-red-200 transition flex items-center justify-center" title="Log Out">
@@ -203,7 +203,6 @@
             <div class="w-full mt-16 pt-8 border-t border-zinc-200 flex flex-col items-center">
                 <div class="flex items-center justify-center gap-6 md:gap-12 flex-wrap">
                     
-                    <!-- Extra Logo 1 -->
                     <div class="text-center">
                         <div class="w-20 h-20 md:w-28 md:h-28 rounded-full flex items-center justify-center overflow-hidden shadow-md mx-auto bg-white border border-zinc-200">
                             <img src="msuiitlogo.png" alt="Extra Logo 1" class="w-full h-full object-cover">
@@ -211,7 +210,6 @@
                         <span class="text-[10px] font-bold text-zinc-600 mt-2 block">MSU-IIT</span>
                     </div>
 
-                    <!-- Extra Logo 2 -->
                     <div class="text-center">
                         <div class="w-20 h-20 md:w-28 md:h-28 rounded-full flex items-center justify-center overflow-hidden shadow-md mx-auto bg-white border border-zinc-200">
                             <img src="csmlogo.png" alt="Extra Logo 2" class="w-full h-full object-cover">
@@ -219,7 +217,6 @@
                         <span class="text-[10px] font-bold text-zinc-600 mt-2 block">CSM</span>
                     </div>
 
-                    <!-- Extra Logo 3 -->
                     <div class="text-center">
                         <div class="w-20 h-20 md:w-28 md:h-28 rounded-full flex items-center justify-center overflow-hidden shadow-md mx-auto bg-white border border-zinc-200">
                             <img src="kasanlogo.jpg" alt="Extra Logo 3" class="w-full h-full object-cover">
@@ -240,16 +237,32 @@
                 <i class="fa-solid fa-xmark text-lg"></i>
             </button>
             <h3 class="text-lg font-bold text-[#7B1113] mb-4 flex items-center gap-2">
-                <i class="fa-solid fa-sliders"></i> System Settings & Customization
+                <i class="fa-solid fa-sliders"></i> System Settings & Portal Switcher
             </h3>
             
             <div class="space-y-4 text-sm">
+                <!-- PORTAL SWITCHER -->
+                <div class="p-4 bg-red-50 rounded-xl border border-red-200">
+                    <label class="block font-bold text-[#7B1113] mb-1 flex items-center gap-2">
+                        <i class="fa-solid fa-exchange-alt"></i> Portal Switcher
+                    </label>
+                    <p class="text-xs text-zinc-600 mb-3">Switch between Whole College Attendance and Student Council Attendance.</p>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="window.location.href='index.html'" class="py-2.5 px-3 text-xs font-bold rounded-xl bg-[#7B1113] text-white shadow transition flex items-center justify-center gap-1.5">
+                            <i class="fa-solid fa-building-columns"></i> College
+                        </button>
+                        <button onclick="window.location.href='scattendance.html'" class="py-2.5 px-3 text-xs font-bold rounded-xl bg-white text-[#7B1113] border border-[#7B1113]/30 hover:bg-zinc-100 transition flex items-center justify-center gap-1.5">
+                            <i class="fa-solid fa-users-gear"></i> Student Council
+                        </button>
+                    </div>
+                </div>
+
                 <!-- Header Color Customization -->
                 <div class="p-4 bg-zinc-50 rounded-xl border border-zinc-200">
                     <label class="block font-bold text-zinc-800 mb-1 flex items-center gap-2">
                         <i class="fa-solid fa-palette text-[#7B1113]"></i> Header Background Color
                     </label>
-                    <p class="text-xs text-zinc-500 mb-2">Piliin ang kulay o maglagay ng HEX code para sa Header background.</p>
+                    <p class="text-xs text-zinc-500 mb-2">Select a color or enter a HEX code for the header background.</p>
                     <div class="flex items-center gap-2">
                         <input type="color" id="headerColorPicker" value="#FDFBF7" onchange="changeHeaderColor(this.value)" 
                             class="w-12 h-10 rounded-lg cursor-pointer border border-zinc-300 p-1 bg-white">
