@@ -14,7 +14,7 @@
 </head>
 <body class="min-h-screen flex flex-col justify-between text-zinc-800 relative">
 
-    <!-- Top Right Controls (Settings Gear & Log Out Button) -->
+    <!-- Top Right Controls -->
     <div class="absolute top-4 right-4 z-50 flex items-center gap-2">
         <button id="settingsBtn" class="bg-white/85 hover:bg-white text-[#7B1113] p-2.5 rounded-full shadow-md border border-[#7B1113]/20 transition flex items-center justify-center" title="System Settings & Portal Switcher">
             <i class="fa-solid fa-gear text-lg"></i>
@@ -30,7 +30,6 @@
         <header id="mainHeader" class="w-full bg-[#FDFBF7] px-6 py-4 border-b border-[#7B1113]/10 transition-colors">
             <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-4">
                 
-                <!-- Left Section -->
                 <div class="flex flex-col w-full lg:w-auto">
                     <div class="flex items-center gap-4">
                         <div class="relative flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden shadow-sm">
@@ -97,15 +96,15 @@
                     <i id="modeIcon" class="fa-solid fa-right-to-bracket"></i>
                 </div>
                 <h3 id="cardTitle" class="text-lg font-bold text-zinc-800 mb-1">Council Sign-In</h3>
-                <p id="cardSubtitle" class="text-xs text-zinc-500 mb-6">Enter your ID number</p>
+                <p id="cardSubtitle" class="text-xs text-zinc-500 mb-6">Enter Surname or Full Name (e.g. Viajante, John)</p>
 
                 <form id="attendanceForm" onsubmit="handleAttendance(event)" class="space-y-4">
                     <div class="relative">
                         <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-zinc-400">
-                            <i class="fa-solid fa-hashtag"></i>
+                            <i class="fa-solid fa-user"></i>
                         </span>
-                        <input type="text" id="idInput" required placeholder="e.g. 2024-1785" 
-                            class="w-full pl-10 pr-4 py-3 bg-zinc-50 border border-zinc-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#7B1113] focus:border-transparent font-mono text-center text-lg tracking-wider">
+                        <input type="text" id="idInput" required placeholder="e.g. Viajante, John Patrick" 
+                            class="w-full pl-10 pr-4 py-3 bg-zinc-50 border border-zinc-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#7B1113] focus:border-transparent text-center text-sm tracking-wider">
                     </div>
                     
                     <button type="submit" id="submitBtn" class="w-full bg-[#7B1113] hover:bg-[#5c0c0e] text-white font-bold py-3 px-6 rounded-xl shadow-md transition duration-200 flex items-center justify-center gap-2">
@@ -133,7 +132,7 @@
                         <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-zinc-400">
                             <i class="fa-solid fa-search text-xs"></i>
                         </span>
-                        <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Search ID, Name, Position..." 
+                        <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Search ID, Name, Committee..." 
                             class="w-full pl-9 pr-3 py-1.5 text-xs bg-white border border-zinc-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#7B1113]">
                     </div>
                 </div>
@@ -143,12 +142,12 @@
                         <table class="w-full text-left border-collapse text-sm" id="attendanceTable">
                             <thead>
                                 <tr class="bg-[#7B1113] text-white text-xs uppercase tracking-wider font-semibold">
-                                    <th class="py-3 px-4 border-r border-red-900 w-28">ID NO.</th>
+                                    <th class="py-3 px-4 border-r border-red-900 w-24">ID NO.</th>
                                     <th class="py-3 px-4 border-r border-red-900">NAME</th>
-                                    <th class="py-3 px-4 border-r border-red-900">PROGRAM</th>
+                                    <th class="py-3 px-4 border-r border-red-900">COMMITTEE</th>
                                     <th class="py-3 px-4 border-r border-red-900">POSITION</th>
-                                    <th class="py-3 px-4 text-center border-r border-red-900 w-24">TIME IN</th>
-                                    <th class="py-3 px-4 text-center w-24">TIME OUT</th>
+                                    <th class="py-3 px-4 text-center border-r border-red-900 w-24">SIGN IN</th>
+                                    <th class="py-3 px-4 text-center w-24">SIGN OUT</th>
                                 </tr>
                             </thead>
                             <tbody id="tableBody" class="divide-y divide-zinc-200 text-zinc-700">
@@ -249,7 +248,7 @@
                 modalBtnIn.className = "flex-1 py-2 text-xs font-bold rounded-lg transition bg-[#7B1113] text-white shadow";
                 modalBtnOut.className = "flex-1 py-2 text-xs font-bold rounded-lg transition text-zinc-700 hover:text-black";
                 cardTitle.innerText = "Council Sign-In";
-                cardSubtitle.innerText = "Enter your ID number";
+                cardSubtitle.innerText = "Enter Surname or Full Name";
                 modeIcon.className = "fa-solid fa-right-to-bracket";
                 modeIndicator.innerText = "Mode: Sign-In Active";
                 modeIndicator.className = "text-xs font-bold text-emerald-700 mt-1 uppercase tracking-wider bg-emerald-50 py-0.5 px-2 rounded-full inline-block border border-emerald-200";
@@ -258,7 +257,7 @@
                 modalBtnOut.className = "flex-1 py-2 text-xs font-bold rounded-lg transition bg-[#7B1113] text-white shadow";
                 modalBtnIn.className = "flex-1 py-2 text-xs font-bold rounded-lg transition text-zinc-700 hover:text-black";
                 cardTitle.innerText = "Council Sign-Out";
-                cardSubtitle.innerText = "Enter your ID number";
+                cardSubtitle.innerText = "Enter Surname or Full Name";
                 modeIcon.className = "fa-solid fa-right-from-bracket";
                 modeIndicator.innerText = "Mode: Sign-Out Active";
                 modeIndicator.className = "text-xs font-bold text-amber-800 mt-1 uppercase tracking-wider bg-amber-50 py-0.5 px-2 rounded-full inline-block border border-amber-200";
@@ -291,11 +290,11 @@
             if (isSubmitting) return;
 
             const idInput = document.getElementById('idInput');
-            const idNo = idInput.value.trim();
+            const searchKey = idInput.value.trim();
             const now = new Date();
             const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
-            if (!idNo) return;
+            if (!searchKey) return;
             const webAppUrl = localStorage.getItem('sc_sheets_url') || localStorage.getItem('csm_sheets_url');
 
             if (webAppUrl) {
@@ -305,13 +304,13 @@
                 submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-1"></i> Processing...';
 
                 try {
-                    const url = `${webAppUrl}?idNo=${encodeURIComponent(idNo)}&mode=${currentMode}&timeString=${encodeURIComponent(timeString)}`;
+                    const url = `${webAppUrl}?idNo=${encodeURIComponent(searchKey)}&mode=${currentMode}&timeString=${encodeURIComponent(timeString)}`;
                     const response = await fetch(url);
                     const result = await response.json();
 
                     if (result.status === "success") {
-                        updateLocalStorageRecord(result.id, result.name, result.program, result.position, result.time, result.mode);
-                        showAlert(`Success: ${result.name} (${result.position}) at ${result.time}`, "success");
+                        updateLocalStorageRecord(result.id, result.name, result.committee, result.position, result.time, result.mode);
+                        showAlert(`Success: ${result.name} (${result.committee}) at ${result.time}`, "success");
                     } else {
                         showAlert(result.message, "warning");
                     }
@@ -330,26 +329,26 @@
             idInput.value = '';
         }
 
-        function updateLocalStorageRecord(idNo, name, program, position, timeString, mode) {
-            let existingRecordIndex = attendanceRecords.findIndex(r => r.id === idNo);
+        function updateLocalStorageRecord(idNo, name, committee, position, timeString, mode) {
+            let existingRecordIndex = attendanceRecords.findIndex(r => r.name && r.name.toLowerCase() === name.toLowerCase());
 
             if (mode === 'signin') {
                 if (existingRecordIndex !== -1) {
                     attendanceRecords[existingRecordIndex].signIn = timeString;
-                    if(name) attendanceRecords[existingRecordIndex].name = name;
-                    if(program) attendanceRecords[existingRecordIndex].program = program;
+                    if(idNo) attendanceRecords[existingRecordIndex].id = idNo;
+                    if(committee) attendanceRecords[existingRecordIndex].committee = committee;
                     if(position) attendanceRecords[existingRecordIndex].position = position;
                 } else {
-                    attendanceRecords.unshift({ id: idNo, name, program, position, signIn: timeString, signOut: "" });
+                    attendanceRecords.unshift({ id: idNo || '—', name, committee, position, signIn: timeString, signOut: "" });
                 }
             } else {
                 if (existingRecordIndex !== -1) {
                     attendanceRecords[existingRecordIndex].signOut = timeString;
-                    if(name) attendanceRecords[existingRecordIndex].name = name;
-                    if(program) attendanceRecords[existingRecordIndex].program = program;
+                    if(idNo) attendanceRecords[existingRecordIndex].id = idNo;
+                    if(committee) attendanceRecords[existingRecordIndex].committee = committee;
                     if(position) attendanceRecords[existingRecordIndex].position = position;
                 } else {
-                    attendanceRecords.unshift({ id: idNo, name, program, position, signIn: "", signOut: timeString });
+                    attendanceRecords.unshift({ id: idNo || '—', name, committee, position, signIn: "", signOut: timeString });
                 }
             }
             localStorage.setItem('sc_attendance_records', JSON.stringify(attendanceRecords));
@@ -367,10 +366,10 @@
         function filterTable() {
             const query = document.getElementById('searchInput').value.toLowerCase();
             filteredRecords = attendanceRecords.filter(r => 
-                r.id.toLowerCase().includes(query) || 
+                (r.id && r.id.toLowerCase().includes(query)) ||
                 (r.name && r.name.toLowerCase().includes(query)) || 
-                (r.position && r.position.toLowerCase().includes(query)) ||
-                (r.program && r.program.toLowerCase().includes(query))
+                (r.committee && r.committee.toLowerCase().includes(query)) ||
+                (r.position && r.position.toLowerCase().includes(query))
             );
             currentPage = 1;
             renderTable();
@@ -415,9 +414,9 @@
                 const signOutClass = record.signOut ? "bg-emerald-50 text-emerald-800 font-bold text-center" : "text-zinc-400 text-center";
 
                 tr.innerHTML = `
-                    <td class="py-3 px-4 font-mono font-bold text-[#7B1113] border-r border-zinc-200">${record.id}</td>
+                    <td class="py-3 px-4 font-mono font-bold text-[#7B1113] border-r border-zinc-200">${record.id || '—'}</td>
                     <td class="py-3 px-4 border-r border-zinc-200 text-zinc-900">${record.name || '—'}</td>
-                    <td class="py-3 px-4 border-r border-zinc-200 text-zinc-600">${record.program || '—'}</td>
+                    <td class="py-3 px-4 border-r border-zinc-200 text-zinc-600">${record.committee || '—'}</td>
                     <td class="py-3 px-4 border-r border-zinc-200 font-semibold text-[#7B1113]">${record.position || '—'}</td>
                     <td class="py-3 px-4 ${signInClass}">${record.signIn || '—'}</td>
                     <td class="py-3 px-4 ${signOutClass}">${record.signOut || '—'}</td>
